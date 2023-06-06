@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 16px 16px;
+    gap: 16px;
+
+    /* Blue / 400 */
+
+    background: #3D8BFD;
+    color:white;
+}
+
+.header h1 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    margin: 0;
+}
+
+form label {
+    display: block;
+    font-weight: 700;
+}
+form div {
+    margin-bottom: 1rem;
+}
+form input {
+    width: 70%;
+}
+form select {
+    width: 70%;
+}
