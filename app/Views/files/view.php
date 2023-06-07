@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <REMITTable2 xmlns="http://www.acer.europa.eu/REMIT/REMITTable2_V1.xsd">
     <reportingEntityID>
-        <ace>B0001064H.DE</ace>
+        <ace><?= $file['reporting_entity_id']?></ace>
     </reportingEntityID>
     <TradeList>
         <nonStandardContractReport>
-            <RecordSeqNumber>1</RecordSeqNumber>
+            <RecordSeqNumber><?= $file['record_seq_number']?></RecordSeqNumber>
             <idOfMarketParticipant>
-                <ace>A00023777.DE</ace>
+                <ace><?= $file['id_of_market_participant']?></ace>
             </idOfMarketParticipant>
             <otherMarketParticipant>
-                <ace>A00113777.DE</ace>
+                <ace><?= $file['other_market_participant']?></ace>
             </otherMarketParticipant>
-            <tradingCapacity>P</tradingCapacity>
-            <buySellIndicator>S</buySellIndicator>
-            <contractId>AQN1qaRf20kwi0GbI3tJlkwqp2z0OlFqVEWUCHTEST001</contractId>
-            <contractDate>2021-11-29</contractDate>
-            <contractType>FW</contractType>
-            <energyCommodity>EL</energyCommodity>
+            <tradingCapacity><?= $file['trading_capacity']?></tradingCapacity>
+            <buySellIndicator><?= $file['buy_sell_indicator']?></buySellIndicator>
+            <contractId><?= $file['contract_id']?></contractId>
+            <contractDate><?= date('Y-m-d', strtotime($file['contract_date'])) ?></contractDate>
+            <contractType><?= $file['contract_type']?></contractType>
+            <energyCommodity><?= $file['energy_commodity']?></energyCommodity>
             <priceOrPriceFormula>
-                <priceFormula>0,51*DEBY+0,22*DEPY</priceFormula>
+                <priceFormula><?= $file['price_formula']?></priceFormula>
             </priceOrPriceFormula>
             <estimatedNotionalAmount>
-                <value>0</value>
-                <currency>EUR</currency>
+                <value><?= $file['estimated_notional_amount_value']?></value>
+                <currency><?= $file['estimated_notional_amount_unit']?></currency>
             </estimatedNotionalAmount>
             <totalNotionalContractQuantity>
-                <value>0</value>
-                <unit>MWh</unit>
+                <value></value>
+                <unit></unit>
             </totalNotionalContractQuantity>
-            <volumeOptionality>V</volumeOptionality>
-            <typeOfIndexPrice>I</typeOfIndexPrice>
+            <volumeOptionality><?= $file['volume_optionality']?></volumeOptionality>
+            <typeOfIndexPrice><?= $file['type_of_index_price']?></typeOfIndexPrice>
             <fixingIndexDetails>
-                <fixingIndex>EEX DE Settlement</fixingIndex>
-                <fixingIndexType>FU</fixingIndexType>
-                <fixingIndexSource>EEX</fixingIndexSource>
-                <firstFixingDate>2021-11-29</firstFixingDate>
-                <lastFixingDate>2022-12-15</lastFixingDate>
-                <fixingFrequency>O</fixingFrequency>
+                <fixingIndex><?= $file['fixing_index']?></fixingIndex>
+                <fixingIndexType><?= $file['fixing_index_type']?></fixingIndexType>
+                <fixingIndexSource><?= $file['fixing_index_source']?></fixingIndexSource>
+                <firstFixingDate><?= date('Y-m-d', strtotime($file['first_fixing_date']))?></firstFixingDate>
+                <lastFixingDate><?= date('Y-m-d', strtotime($file['last_fixing_date']))?></lastFixingDate>
+                <fixingFrequency><?= $file['fixing_frequency']?></fixingFrequency>
             </fixingIndexDetails>
-            <settlementMethod>P</settlementMethod>
-            <deliveryPointOrZone>10YDE-VE-------2</deliveryPointOrZone>
-            <deliveryStartDate>2022-01-01</deliveryStartDate>
-            <deliveryEndDate>2023-12-31</deliveryEndDate>
-            <loadType>SH</loadType>
-            <actionType>N</actionType>
+            <settlementMethod><?= $file['settlement_method']?></settlementMethod>
+            <deliveryPointOrZone><?= $file['delivery_point_or_zone']?></deliveryPointOrZone>
+            <deliveryStartDate><?= date('Y-m-d', strtotime($file['delivery_start_date']))?></deliveryStartDate>
+            <deliveryEndDate><?= date('Y-m-d', strtotime($file['delivery_end_date']))?></deliveryEndDate>
+            <loadType><?= $file['load_type']?></loadType>
+            <actionType><?= $file['action_type']?></actionType>
         </nonStandardContractReport>
     </TradeList>
 </REMITTable2>

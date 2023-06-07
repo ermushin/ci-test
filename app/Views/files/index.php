@@ -39,7 +39,7 @@
                     <a href="/files/<?=$file['id']?>/delete"><i data-feather="trash"></i></a>
                 </td>
                 <td class="file-buttom col-md-1 text-center">
-                <a href="/files/<?=$file['id']?>/view"><i data-feather="download"></i></a>
+                <a href="/files/<?=$file['id']?>"><i data-feather="download"></i></a>
                 </td>
             </tr>
         <?php endforeach; ?>

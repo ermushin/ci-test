@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
+use XMLReader;
 
 class Files extends ResourceController
 {
@@ -26,8 +27,10 @@ class Files extends ResourceController
      */
     public function show($id = null)
     {
-        $file = false;
-        return view('files/view', compact('file'));
+        $filesModel = model(\App\Models\FileModel::class);
+        $file = $filesModel->find($id);
+
+        return $this->response->download($file['name'], view('files/view', compact('file')));
     }
 
     /**
