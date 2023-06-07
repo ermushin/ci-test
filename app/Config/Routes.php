@@ -31,7 +31,14 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->resource('files');
+$routes->get('files/new', 'Files::new', ['as'=>'files.new']);
+$routes->post('files', 'Files::create', ['as'=>'files.create']);
+$routes->get('files', 'Files::index', ['as'=>'files']);
+$routes->get('files/(:segment)', 'Files::show/$1', ['as'=>'files.view']);
+$routes->get('files/(:segment)/edit', 'Files::edit/$1', ['as'=>'files.edit']);
+$routes->put('files/(:segment)', 'Files::update/$1', ['as'=>'files.update']);
+$routes->patch('files/(:segment)', 'Files::update/$1', ['as'=>'files.patch']);
+$routes->get('files/(:segment)/delete', 'Files::delete/$1', ['as'=>'files.delete']);
 
 /*
  * --------------------------------------------------------------------

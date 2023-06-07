@@ -2,6 +2,15 @@
 
 <?= $this->section('content') ?>
     <div class="container my-5">
+    <?= session()->getFlashdata('error') ?>
+    <?= validation_list_errors() ?>
+    <?php if (! empty($errors)): ?>
+        <div class="alert alert-danger">
+        <?php foreach ($errors as $field => $error): ?>
+            <p><?= esc($error) ?></p>
+        <?php endforeach ?>
+        </div>
+    <?php endif ?>
         <form method="post" action="<?= url_to('files'); ?>">
         <?= csrf_field() ?>
             <div class="row">
@@ -14,10 +23,10 @@
                         <label for"reportingEntityIdType">reportingEntityId Type</label>
                         <select name="reportingEntityIdType" placeholder="ace" class="form-control">
                             <option value="ace" selected>ace</option>
-                            <option value="lei">ace</option>
-                            <option value="bic">ace</option>
-                            <option value="eic">ace</option>
-                            <option value="gln">ace</option>
+                            <option value="lei">lei</option>
+                            <option value="bic">bic</option>
+                            <option value="eic">eic</option>
+                            <option value="gln">gln</option>
                         </select>
                     </div>
                     <div>
@@ -32,10 +41,10 @@
                         <label for"idOfMarketParticipantType">idOfMarketParticipant Type</label>
                         <select name="idOfMarketParticipantType" placeholder="ace" class="form-control">
                             <option value="ace" selected>ace</option>
-                            <option value="lei">ace</option>
-                            <option value="bic">ace</option>
-                            <option value="eic">ace</option>
-                            <option value="gln">ace</option>
+                            <option value="lei">lei</option>
+                            <option value="bic">bic</option>
+                            <option value="eic">eic</option>
+                            <option value="gln">gln</option>
                         </select>
                     </div>
                     <div>
@@ -46,10 +55,10 @@
                         <label for"otherMarketParticipantType">otherMarketParticipant Type</label>
                         <select name="otherMarketParticipantType" placeholder="ace" class="form-control">
                             <option value="ace" selected>ace</option>
-                            <option value="lei">ace</option>
-                            <option value="bic">ace</option>
-                            <option value="eic">ace</option>
-                            <option value="gln">ace</option>
+                            <option value="lei">lei</option>
+                            <option value="bic">bic</option>
+                            <option value="eic">eic</option>
+                            <option value="gln">gln</option>
                         </select>
                     </div>
                     <div>

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
+use Exception;
 
 class Files extends ResourceController
 {
@@ -36,6 +37,7 @@ class Files extends ResourceController
      */
     public function new()
     {
+        helper('form');
         return view('files/create');
     }
 
@@ -47,10 +49,48 @@ class Files extends ResourceController
     public function create()
     {
         helper('form');
-
+        $filesModel = model(\App\Models\FileModel::class);
         $data = $this->request->getPost();
-        $filesModel = new \App\Models\FileModel();
-        $filesModel->save($data);
+        try{
+        $file =  $filesModel->save([  
+                'name'                              => 'qwfqfqwf',
+                'reporting_entity_id'               => $data['reportingEntityId'],
+                'reporting_entity_id_type'          => $data['reportingEntityIdType'],
+                'record_seq_number'                 => $data['recordSeqNumber'],
+                'id_of_market_participant'          => $data['idOfMarketParticipant'],
+                'id_of_market_participant_type'     => $data['idOfMarketParticipantType'],
+                'other_market_participant'          => $data['otherMarketParticipant'],
+                'other_market_participant_type'     => $data['otherMarketParticipantType'],
+                'trading_capacity'                  => $data['tradingCapacity'],
+                'buy_sell_indicator'                => $data['buySellIndicator'],
+                'contract_id'                       => $data['contractId'],
+                'contract_date'                     => $data['contractDate'],
+                'contract_type'                     => $data['contractType'],
+                'energy_commodity'                  => $data['energyCommodity'],
+                'price_formula'                     => $data['priceFormula'],
+                'estimated_notional_amount_value'   => $data['estimatedNotionalAmountValue'],
+                'estimated_notional_amount_unit'    => $data['estimatedNotionalAmountUnit'],
+                'volume_optionality'                => $data['volumeOptionality'],
+                'type_of_index_price'               => $data['typeOfIndexPrice'],
+                'fixing_index'                      => $data['fixingIndex'],
+                'fixing_index_type'                 => $data['fixingIndexType'],
+                'fixing_index_source'               => $data['fixingIndexSource'],
+                'first_fixing_date'                 => $data['firstFixingDate'],
+                'last_fixing_date'                  => $data['lastFixingDate'],
+                'fixing_frequency'                  => $data['fixingFrequency'],
+                'settlement_method'                 => $data['settlementMethod'],
+                'delivery_point_or_zone'            => $data['deliveryPointOrZone'],
+                'delivery_start_date'               => $data['deliveryStartDate'],
+                'delivery_end_date'                 => $data['deliveryEndDate'],
+                'load_type'                         => $data['loadType'],
+                'action_type'                       => $data['actionType']
+            ]);
+            if(!$file) {
+                return view('files/create', ['errors' => $filesModel->errors()]);
+            };
+        } catch (Exception $ex) {
+            echo $ex->getMessage();exit;
+        }
         return redirect('files');
     }
 
