@@ -148,7 +148,7 @@ class Files extends ResourceController
             'action_type'                       => $data['actionType']
         ]);
         if(!$file) {
-            return view('files/edit', ['errors' => $filesModel->errors()]);
+            return view('files/edit', ['file' => $filesModel->find($id), 'errors' => $filesModel->errors()]);
         };
         return redirect('files');
     }
